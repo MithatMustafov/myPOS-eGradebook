@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: myPOS_DB_eGradebook
+    restart: always
+    environment:
+      POSTGRES_USER: Username
+      POSTGRES_PASSWORD: Password
+      POSTGRES_DB: eGradebookDB
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/01-init.sql
+      - ./mockdata.sql:/docker-entrypoint-initdb.d/02-mockdata.sql
