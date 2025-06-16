@@ -16,8 +16,17 @@ if not exist build (
     mkdir build
 )
 
-REM Compile main.cpp, output executable to build folder
-cl /EHsc ./src/main.cpp /Fe:build\main.exe
+REM Compile all source files
+cl /EHsc /I src ^
+    src\main.cpp ^
+    src\asciiArt\asciiMyPOS.cpp ^
+    src\menu\Menu.cpp ^
+    src\menu\MenuFunctions.cpp ^
+    src\menu\actions\StudentActions.cpp ^
+    src\menu\actions\SubjectActions.cpp ^
+    src\menu\actions\GradeActions.cpp ^
+    src\menu\actions\AnalyticsActions.cpp ^
+    /Fe:build\main.exe
 
 REM Pause so you can see compiler output
 pause

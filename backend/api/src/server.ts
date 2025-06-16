@@ -1,12 +1,18 @@
 import Fastify from 'fastify';
-import pool from './config/db';
 import studentRoutes from './routes/students';
+import subjectRoutes from './routes/subjects';
+import gradeRoutes from './routes/grades';
+import analyticsRoutes from './routes/analytics';
 
 const fastify = Fastify({
   logger: true,
 });
 
+// Register routes
 fastify.register(studentRoutes);
+fastify.register(subjectRoutes);
+fastify.register(gradeRoutes);
+fastify.register(analyticsRoutes);
 
 const start = async () => {
   try {
